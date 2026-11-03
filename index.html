@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raising a Child with ADHD — Barkley Deck</title>
+  <meta name="description" content="What two evenings with Dr. Russell Barkley taught us: a family reference deck on ADHD, condensed from the 2012 Essential Ideas lecture and the 2022 ADDitude webinar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="progressbar" aria-hidden="true">
+    <div class="progressbar__track" role="presentation">
+      <div class="progressbar__fill" id="progressFill"></div>
+      <div class="progressbar__cursor" id="progressCursor"></div>
+    </div>
+  </header>
+
+  <nav class="skip" aria-label="Deck navigation">
+    <a class="skip__link" href="#deck">Skip to slides</a>
+  </nav>
+
+  <main id="deck" class="deck" aria-live="polite"></main>
+
+  <footer class="chromebar" aria-hidden="true">
+    <span class="chromebar__left">Barkley · ADHD</span>
+    <span class="chromebar__right"><span id="slideIndex">1</span> / <span id="slideTotal">0</span></span>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="deck.js"></script>
+</body>
+</html>

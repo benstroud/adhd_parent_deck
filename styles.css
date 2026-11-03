@@ -1,0 +1,291 @@
+/* ============================================================
+   Raising a Child with ADHD — Barkley deck
+   Dark, warm. Signature: a time ruler (executive age motif).
+   ============================================================ */
+
+:root {
+  --bg: #16130e;          /* warm near-black */
+  --bg-raise: #1e1a13;    /* raised surfaces */
+  --ink: #f3ecdd;         /* warm off-white text */
+  --ink-dim: #b7a98f;     /* secondary text */
+  --ink-faint: #8a7c64;   /* tertiary text */
+  --accent: #e2a05a;      /* warm amber — the ruler */
+  --accent-strong: #f0b878;
+  --accent-soft: #3a2f1e; /* faint accent wash */
+  --rule: #32291b;        /* hairlines */
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.15vw + 9px, 19px);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- progress ruler (the signature) ---------- */
+
+.progressbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  padding: 18px clamp(18px, 4vw, 56px) 0;
+  pointer-events: none;
+}
+
+.progressbar__track {
+  position: relative;
+  height: 30px;
+  border-bottom: 1px solid var(--rule);
+  /* tick marks every 10% — a real ruler */
+  background-image:
+    repeating-linear-gradient(90deg,
+      transparent 0, transparent calc(10% - 1px),
+      var(--rule) calc(10% - 1px), var(--rule) 10%);
+}
+
+.progressbar__fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, var(--accent-soft));
+  border-right: 1px solid var(--accent);
+  transition: width .35s ease;
+}
+
+.progressbar__cursor {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0;
+  width: 1px;
+  background: var(--accent-strong);
+  box-shadow: 0 0 8px var(--accent);
+  transition: left .35s ease;
+}
+
+/* ---------- deck / slides ---------- */
+
+.deck {
+  padding: 72px clamp(18px, 5vw, 72px) 64px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.slide {
+  min-height: calc(100vh - 136px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 5vh, 64px) 0;
+  scroll-snap-align: start;
+  border-bottom: 1px solid var(--rule);
+}
+
+.slide:last-child { border-bottom: 0; }
+
+.slide__kicker {
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+.slide__title {
+  font-family: var(--serif);
+  font-weight: 520;
+  font-size: clamp(2rem, 4.6vw + 10px, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin: 0 0 clamp(18px, 2.6vh, 30px);
+  max-width: 22ch;
+}
+
+.slide__title em {
+  font-style: italic;
+  color: var(--accent-strong);
+}
+
+.slide__body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 62ch;
+  display: grid;
+  gap: 12px;
+}
+
+.slide__body li {
+  padding-left: 26px;
+  position: relative;
+  color: var(--ink);
+}
+
+.slide__body li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: .62em;
+  width: 12px; height: 1px;
+  background: var(--accent);
+}
+
+.slide__quote {
+  margin: clamp(22px, 3.4vh, 40px) 0 0;
+  max-width: 60ch;
+  padding: 18px 22px 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-raise);
+}
+
+.slide__quote p {
+  margin: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.3vw + 8px, 1.35rem);
+  line-height: 1.4;
+}
+
+.slide__quote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+.slide__quote cite a {
+  color: var(--ink-dim);
+  text-underline-offset: 3px;
+}
+
+.slide__quote cite a:hover { color: var(--accent-strong); }
+
+.slide__quote--title { max-width: 46ch; margin-top: clamp(28px, 4vh, 48px); }
+
+
+/* title slide */
+
+.slide--title {
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slide--title .slide__title {
+  font-size: clamp(2.6rem, 6.2vw + 12px, 5rem);
+  max-width: 15ch;
+  margin-bottom: 22px;
+}
+
+.slide--title .slide__sub {
+  font-size: clamp(1.1rem, 1.6vw + 9px, 1.5rem);
+  color: var(--ink-dim);
+  font-family: var(--serif);
+  font-style: italic;
+  margin: 0 0 34px;
+  max-width: 34ch;
+}
+
+.slide__sources {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: .92rem;
+}
+
+.slide__sources a {
+  color: var(--ink-dim);
+  text-underline-offset: 3px;
+}
+
+.slide__sources a:hover { color: var(--accent-strong); }
+
+/* placeholder callout (personal slide) */
+
+.slide--placeholder .slide__body li::before { background: var(--ink-faint); }
+.slide--placeholder .slide__kicker { color: var(--ink-faint); }
+
+/* ---------- chrome bar ---------- */
+
+.chromebar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px clamp(18px, 4vw, 56px);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  background: linear-gradient(transparent, var(--bg) 70%);
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ---------- skip link ---------- */
+
+.skip__link {
+  position: fixed;
+  top: -60px; left: 16px;
+  z-index: 30;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #1a140b;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top .2s ease;
+}
+
+.skip__link:focus { top: 12px; }
+
+/* ---------- keyboard focus ---------- */
+
+a:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .progressbar__fill, .progressbar__cursor { transition: none; }
+}
+
+/* ---------- print: one slide per page ---------- */
+
+@media print {
+  .progressbar, .chromebar, .skip { display: none; }
+  html { scroll-snap-type: none; }
+  .deck { padding: 0; max-width: none; }
+  .slide {
+    min-height: 0;
+    height: 100vh;
+    page-break-after: always;
+    justify-content: center;
+  }
+  body { background: #fff; color: #1c1c1c; }
+  .slide__quote { background: #f5f2ec; }
+  .slide__title em { color: #8a5a1e; }
+  .slide__kicker { color: #8a5a1e; }
+  .slide__body li::before { background: #8a5a1e; }
+  .slide__quote cite, .slide__quote cite a, .slide__sources a,
+  .slide--title .slide__sub { color: #555; }
+}
