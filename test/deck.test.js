@@ -6,8 +6,8 @@ const REPO = path.resolve(__dirname, "..");
 const { DECK } = require(path.join(REPO, "content.js"));
 const { toText } = require(path.join(REPO, "deck.js"));
 
-test("deck has 21 slides with unique ids", () => {
-  assert.strictEqual(DECK.slides.length, 21);
+test("deck has 25 slides with unique ids", () => {
+  assert.strictEqual(DECK.slides.length, 25);
   const ids = DECK.slides.map((s) => s.id);
   assert.strictEqual(new Set(ids).size, ids.length);
 });
@@ -45,15 +45,17 @@ test("title slide is first; one placeholder slide (takeaways)", () => {
 });
 
 test("every quote cites the correct talk id by URL", () => {
+  const TALK_IDS = {
+    "2012 lecture": "SCAGc-rkIfo",
+    "2022 webinar": "52wQuMSUAkY",
+    "Nigg webinar": "mdG_UQ0C9eI",
+    "BPT webinar": "DvGmcYGgiGo",
+  };
   DECK.slides.forEach((s) => {
-    if (!s.cite) return;
+    if (!s.cite || !s.cite.talk) return;
     const url = new URL(s.cite.url);
     const v = url.searchParams.get("v");
-    if (s.cite.talk.includes("2012")) {
-      assert.strictEqual(v, "SCAGc-rkIfo");
-    } else {
-      assert.strictEqual(v, "52wQuMSUAkY");
-    }
+    assert.strictEqual(v, TALK_IDS[s.cite.talk], `talk '${s.cite.talk}' → video ${v}, expected ${TALK_IDS[s.cite.talk]}`);
   });
 });
 

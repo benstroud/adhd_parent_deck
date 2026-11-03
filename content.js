@@ -5,10 +5,12 @@
 const DECK = {
   meta: {
     title: "Raising a Child with ADHD",
-    subtitle: "What two evenings with Dr. Russell Barkley taught us",
+    subtitle: "Four expert talks, distilled for our family",
     sources: [
       { label: "2012 lecture — Essential Ideas for Parents (2:51:44)", url: "https://www.youtube.com/watch?v=SCAGc-rkIfo" },
-      { label: "2022 webinar — 6 Principles for Raising a Child with ADHD (1:02:36)", url: "https://www.youtube.com/watch?v=52wQuMSUAkY" }
+      { label: "2022 webinar — 6 Principles for Raising a Child with ADHD (1:02:36)", url: "https://www.youtube.com/watch?v=52wQuMSUAkY" },
+      { label: "Joel Nigg, Ph.D. — How Environment & Lifestyle Impact ADHD, ADDitude webinar 2017 (55:19)", url: "https://www.youtube.com/watch?v=mdG_UQ0C9eI" },
+      { label: "Nicole Schatz, Ph.D. — Behavioral Parent Training for ADHD, ADDitude webinar 2025 (1:01:33)", url: "https://www.youtube.com/watch?v=DvGmcYGgiGo" }
     ]
   },
 
@@ -18,9 +20,10 @@ const DECK = {
       kicker: "A family reference deck",
       title: "Raising a Child with ADHD",
       body: [
-        "Two talks by Dr. Russell Barkley, condensed into what matters for our family",
-        "2012 lecture: 30 essential ideas for parents",
-        "2022 webinar: 6 principles for raising a child with ADHD"
+        "Four expert talks, condensed into what matters for our family",
+        "Barkley 2012 lecture: 30 essential ideas for parents",
+        "Barkley 2022 webinar: 6 principles for raising a child",
+        "Nigg (2017) on environment & lifestyle; Schatz (2025) on behavioral parent training"
       ],
       quote: "Your job is as a shepherd who engages in all of these major responsibilities to raise the healthiest sheep you can get.",
       cite: { talk: "2022 webinar", ts: "30:11", url: "https://www.youtube.com/watch?v=52wQuMSUAkY&t=1811" }
@@ -219,6 +222,58 @@ const DECK = {
       ],
       quote: "Taking something out of the diet benefits about one out of every 20 ADHD children.",
       cite: { talk: "2012 lecture", ts: "2:27:51", url: "https://www.youtube.com/watch?v=SCAGc-rkIfo&t=8871" }
+    },
+    {
+      id: "nigg-env",
+      kicker: "Environment & lifestyle (Joel Nigg, 2017)",
+      title: "Genes aren't destiny",
+      body: [
+        "Genes create a tendency, not a fate — the environment shapes or activates that tendency",
+        "Epigenetic marks turn genes up or down (like a radio volume dial), and they can be changed",
+        "Exercise, sleep, diet, stress, and even pollutants all shift these marks",
+        "Same genes + different environment → different outcomes: that is the hope"
+      ],
+      quote: "Genes themselves can probably not be changed easily, but these epigenetic connectors can be affected both positively and negatively.",
+      cite: { talk: "Nigg webinar", ts: "40:06", url: "https://www.youtube.com/watch?v=mdG_UQ0C9eI&t=2406" }
+    },
+    {
+      id: "nigg-lifestyle",
+      kicker: "What we can control",
+      title: "The lifestyle levers that help",
+      body: [
+        "Exercise: the single most well-established lever — regular aerobic exercise changes the brain",
+        "Sleep: a big, often-missed factor for learning and attention — protect bedtime",
+        "Diet: omega-3 and a healthy diet help; minimize junk food and excess caffeine in kids",
+        "Consider testing for iron, zinc, and lead — common correctable deficiencies"
+      ],
+      quote: "If I could pick only one, I'd probably say exercise. ... Frequent, regular aerobic exercise seems to be the most well-established benefit.",
+      cite: { talk: "Nigg webinar", ts: "40:44", url: "https://www.youtube.com/watch?v=mdG_UQ0C9eI&t=2444" }
+    },
+    {
+      id: "bpt-firstline",
+      kicker: "Behavioral parent training (Schatz, 2025)",
+      title: "BPT is the first-line non-drug treatment",
+      body: [
+        "Large body of carefully controlled research showing real improvement",
+        "First-line for young children with ADHD; for school-age kids, alone or with medication",
+        "Improves the child's behavior, the parent-child relationship, and parent stress",
+        "Teaches skills to practice at home — this is what actually changes daily life"
+      ],
+      quote: "When I say evidence-based, I mean that there has been a large body of very carefully controlled research that indicates that we see improvements.",
+      cite: { talk: "BPT webinar", ts: "4:06", url: "https://www.youtube.com/watch?v=DvGmcYGgiGo&t=246" }
+    },
+    {
+      id: "bpt-abc",
+      kicker: "How it works",
+      title: "BPT in practice: the ABCs and praise",
+      body: [
+        "A-B-C model: Antecedent → Behavior → Consequence; children learn through consequences",
+        "Use a 3:1 ratio — three affirmations for every command, question, or reprimand",
+        "Make praise specific and sincere ('good job sharing with your sister'), not sarcastic",
+        "Ignore minor misbehavior; break big tasks into small steps; use time-out when escalated"
+      ],
+      quote: "Something we commonly recommend is a 3:1 ratio of praise to commands, questions, or reprimands.",
+      cite: { talk: "BPT webinar", ts: "16:57", url: "https://www.youtube.com/watch?v=DvGmcYGgiGo&t=1017" }
     },
     {
       id: "lifecourse",
